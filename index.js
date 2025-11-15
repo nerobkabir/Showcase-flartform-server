@@ -35,10 +35,10 @@ async function run() {
             res.send(result);
         });
 
-        // Get all cards (with search + category)
+        // Get all cards (search + category)
         app.get('/artworks', async (req, res) => {
             const search = req.query.search || '';
-            const category = req.query.category || ''; // ✅ added category query
+            const category = req.query.category || ''; 
             const query = {
                 visibility: "Public",
                 $and: [
@@ -48,7 +48,7 @@ async function run() {
                             { userName: { $regex: search, $options: 'i' } }
                         ]
                     },
-                    ...(category ? [{ category: category }] : []) // ✅ only filter by category if provided
+                    ...(category ? [{ category: category }] : []) 
                 ]
             };
 

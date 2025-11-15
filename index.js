@@ -116,16 +116,15 @@ async function run() {
             res.send(result);
         });
 
-        // ✅ Get all favorite artworks for a specific user
+        // Get all favorite artworks 
         app.get('/favorites', async (req, res) => {
             const email = req.query.email;
             const favorites = await favoritesCollection.find({ userEmail: email }).toArray();
 
-            // Join favorite with artwork details
             const artworkIds = favorites.map(f => new ObjectId(f.artworkId));
             const artworks = await addsCollection.find({ _id: { $in: artworkIds } }).toArray();
 
-            // Combine data
+            
             const combined = favorites.map(fav => ({
                 ...fav,
                 artwork: artworks.find(a => a._id.toString() === fav.artworkId) || {},

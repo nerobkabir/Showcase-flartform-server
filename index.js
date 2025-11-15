@@ -81,7 +81,7 @@ async function run() {
             res.send(result);
         });
 
-        // ✅ Get artist total artworks (optional)
+        // Get artist total artworks
         app.get('/artist/:email/artworks', async (req, res) => {
             const email = req.params.email;
             const count = await addsCollection.countDocuments({ userEmail: email });

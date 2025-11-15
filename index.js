@@ -74,9 +74,9 @@ async function run() {
             res.send(result);
         });
 
-        // ✅ Add to favorites (store in a "favorites" collection)
+        // Add to favorites
         app.post('/favorites', async (req, res) => {
-            const favorite = req.body; // { userEmail, artworkId }
+            const favorite = req.body; 
             const result = await favoritesCollection.insertOne(favorite);
             res.send(result);
         });

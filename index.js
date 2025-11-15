@@ -102,7 +102,7 @@ async function run() {
             res.send(result);
         });
 
-        // ✅ Update artwork by ID
+        // Update artwork by ID
         app.put('/artworks/:id', async (req, res) => {
             const id = req.params.id;
             const updateData = req.body;
@@ -134,7 +134,7 @@ async function run() {
             res.send(combined);
         });
 
-        // ✅ Remove favorite by ID
+        // Remove favorite by ID
         app.delete('/favorites/:id', async (req, res) => {
             const id = req.params.id;
             const result = await favoritesCollection.deleteOne({ _id: new ObjectId(id) });

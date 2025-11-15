@@ -57,7 +57,7 @@ async function run() {
         });
 
 
-        // ✅ Get single artwork by ID
+        // Get single artwork by ID
         app.get('/artworks/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) };

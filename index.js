@@ -65,7 +65,7 @@ async function run() {
             res.send(artwork);
         });
 
-        // ✅ Like button → increase like count
+        // increase like count
         app.patch('/artworks/:id/like', async (req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) };

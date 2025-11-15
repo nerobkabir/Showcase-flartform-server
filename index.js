@@ -88,7 +88,6 @@ async function run() {
             res.send({ totalArtworks: count });
         });
 
-        // ✅ Get artworks by logged-in user
         app.get('/my-artworks', async (req, res) => {
             const email = req.query.email;
             const query = { userEmail: email };
@@ -96,7 +95,7 @@ async function run() {
             res.send(artworks);
         });
 
-        // ✅ Delete artwork by ID
+        // Delete artwork by ID
         app.delete('/artworks/:id', async (req, res) => {
             const id = req.params.id;
             const result = await addsCollection.deleteOne({ _id: new ObjectId(id) });

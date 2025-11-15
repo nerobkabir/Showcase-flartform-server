@@ -35,7 +35,7 @@ async function run() {
             res.send(result);
         });
 
-        // Get all cards (search + category)
+        // Get all cards category
         app.get('/artworks', async (req, res) => {
             const search = req.query.search || '';
             const category = req.query.category || ''; 
